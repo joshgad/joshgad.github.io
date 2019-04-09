@@ -1,0 +1,1275 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="JavaScript 实用技巧和写法建议, 七月飞雪">
+    <meta name="description" content="前端标签： 干货
+JavaScript 实用技巧和写法建议1.前言从大学到现在，接触前端已经有几年了，感想方面，就是对于程序员而言，想要提高自己的技术水平和编写易于阅读和维护的代码，我觉得不能每天都是平庸的写代码，更要去推敲，去摸索和优化代">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>JavaScript 实用技巧和写法建议 | 七月飞雪</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">七月飞雪</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">七月飞雪</div>
+        <div class="logo-desc">
+            
+            for love
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        JavaScript 实用技巧和写法建议
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/前端/" target="_blank">
+                                <span class="chip bg-color">前端</span>
+                            </a>
+                        
+                            <a href="/tags/js/" target="_blank">
+                                <span class="chip bg-color">js</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/编程-前端/" class="post-category" target="_blank">
+                                编程, 前端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2017-05-14
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><p>标签： 干货</p>
+<h1 id="JavaScript-实用技巧和写法建议"><a href="#JavaScript-实用技巧和写法建议" class="headerlink" title="JavaScript 实用技巧和写法建议"></a>JavaScript 实用技巧和写法建议</h1><h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>从大学到现在，接触前端已经有几年了，感想方面，就是对于程序员而言，想要提高自己的技术水平和编写易于阅读和维护的代码，我觉得不能每天都是平庸的写代码，更要去推敲，去摸索和优化代码，总结当中的技巧，积极听取别人的建议，这样自己的技术水平会提高的更快。那么今天，我在这里就分享一下关于javascript方面的写作的实用技巧和建议，这些技巧和建议是我平常在开发项目上会用到的，希望能让大家学到知识，更希望能起到一个交流意见的作用，也就是说大家有什么好的技巧或者建议，欢迎分享，或者觉得我的想法存在什么问题，欢迎指出!</p>
+<h2 id="2-更短的数组去重写法"><a href="#2-更短的数组去重写法" class="headerlink" title="2.更短的数组去重写法"></a>2.更短的数组去重写法</h2><pre><code>[...new Set([2,&quot;12&quot;,2,12,1,2,1,6,12,13,6])]
+//[2, &quot;12&quot;, 12, 1, 6, 13]
+//es6的新特性
+
+</code></pre><h2 id="3-对象深浅拷贝"><a href="#3-对象深浅拷贝" class="headerlink" title="3.对象深浅拷贝"></a>3.对象深浅拷贝</h2><p>关于对象的深浅拷贝，我个人见解就是有一下几点：</p>
+<p>1.深拷贝和浅拷贝只针对像Object, Array这样的引用类型数据。</p>
+<p>2.浅拷贝是对对象引用地址进行拷贝，并没有开辟新的栈，也就是拷贝后的结果是两个对象指向同一个引用地址，修改其中一个对象的属性，则另一个对象的属性也会改变。</p>
+<p>3.深拷贝则是开启一个新的栈，两个对象对应两个不同的引用地址，修改一个对象的属性，不会改变另一个对象的属性。</p>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><pre><code>var myInfo={name:&#39;守候&#39;,sex:&#39;男&#39;};
+
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444b153bd43?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<pre><code>var newInfo=myInfo;
+
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444e6487915?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<pre><code>newInfo.sex=&#39;女&#39;;
+
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444e2d6a43b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<pre><code>console.log(myInfo)   //{name: &quot;守候&quot;, sex: &quot;女&quot;}
+
+</code></pre><h3 id="假-深拷贝"><a href="#假-深拷贝" class="headerlink" title="假-深拷贝"></a>假-深拷贝</h3><p>假-深拷贝这个是自己随性命名的，大家看看就好，别当真！</p>
+<pre><code>var myInfo={name:&#39;守候&#39;,sex:&#39;男&#39;};
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444b153bd43?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<pre><code>var newInfo=Object.assign({},myInfo)
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444ea8bca2c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<pre><code>newInfo.sex=&#39;女&#39;;
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444a56dc84e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<pre><code>console.log(myInfo)   //{name: &quot;守候&quot;, sex: &quot;男&quot;}
+console.log(newInfo)   //{name: &quot;守候&quot;, sex: &quot;女&quot;}
+
+</code></pre><h3 id="真-深拷贝"><a href="#真-深拷贝" class="headerlink" title="真-深拷贝"></a>真-深拷贝</h3><p>真-深拷贝这个是自己随性命名的，大家看看就好，别当真！</p>
+<p>看着深浅拷贝，区别写法很简单，但是那个上面的深拷贝写法是有问题的。看下面案例</p>
+<pre><code>var arr=[{a:1,b:2},{a:3,b:4}]
+var newArr=Object.assign([],arr)
+//截断数组
+newArr.length=1
+console.log(newArr)//[{a:1,b:2}]
+console.log(arr)//[{a:1,b:2},{a:3,b:4}]
+//操作newArr，这里看着对arr没影响，实际上已经挖了一个坑，下面就跳进去
+newArr[0].a=123
+//修改newArr[0]这个对象，也是影响了arr[0]这个对象
+console.log(arr[0])//{a: 123, b: 2}
+</code></pre><p>为什么会这样呢，因为Object.assign并不是深拷贝，是披着深拷贝外衣的浅拷贝。最多也是Object.assign会课拷贝第一层的值，对于第一层的值都是深拷贝，而到第二层的时候就是 复制引用。类似的情况还有，slice方法和concat方法等。<br>要解决这个问题，就得自己封装方法！如下</p>
+<pre><code>//利用递归来实现深拷贝，如果对象属性的值是引用类型（Array,Object），那么对该属性进行深拷贝，直到遍历到属性的值是基本类型为止。  
+function deepClone(obj){    
+  if(!obj&amp;&amp; typeof obj!== &#39;object&#39;){      
+    return;    
+  }    
+  var newObj= obj.constructor === Array ? [] : {};    
+  for(var key in obj){       
+    if(obj[key]){          
+      if(obj[key] &amp;&amp; typeof obj[key] === &#39;object&#39;){  
+        newObj[key] = obj[key].constructor === Array ? [] : {}; 
+        //递归
+        newObj[key] = deepClone(obj[key]);          
+      }else{            
+        newObj[key] = obj[key];         
+      }       
+    }    
+  }    
+  return newObj; 
+}
+var arr=[{a:1,b:2},{a:3,b:4}]
+var newArr=deepClone(arr)
+console.log(arr[0])//{a:1,b:2}
+newArr[0].a=123
+console.log(arr[0])//{a:1,b:2}
+</code></pre><p>还有一个方法就是简单粗暴法，我现在在用的一个方法！原理很简单，就是先把对象转成字符串，再把字符串转成对象！也能实现同样效果</p>
+<pre><code>var newArr2=JSON.parse(JSON.stringify(arr));
+console.log(arr[0])//{a:1,b:2}
+newArr2[0].a=123
+console.log(arr[0])//{a:1,b:2}
+</code></pre><p>上面所说的浅拷贝，真假深拷贝（自己随性命名的），这几种情况，在开发上都有可能要用到，至于要使用哪一种方式，视情况而定！</p>
+<h2 id="4-使用事件委托"><a href="#4-使用事件委托" class="headerlink" title="4.使用事件委托"></a>4.使用事件委托</h2><p>一个简单的需求，比如想给ul下面的li加上点击事件，点击哪个li，就显示那个li的innerHTML。这个貌似很简单！代码如下！</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;ul id=&quot;ul-test&quot;&gt;
+            &lt;li&gt;0&lt;/li&gt;
+            &lt;li&gt;1&lt;/li&gt;
+            &lt;li&gt;2&lt;/li&gt;
+            &lt;li&gt;3&lt;/li&gt;
+            &lt;li&gt;4&lt;/li&gt;
+            &lt;li&gt;5&lt;/li&gt;
+            &lt;li&gt;6&lt;/li&gt;
+            &lt;li&gt;7&lt;/li&gt;
+            &lt;li&gt;8&lt;/li&gt;
+            &lt;li&gt;9&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/body&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var oUl=document.getElementById(&quot;ul-test&quot;);
+        var oLi=oUl.getElementsByTagName(&quot;li&quot;);
+        for(var i=0,len=oLi.length;i&lt;len;i++){
+            oLi[i].addEventListener(&quot;click&quot;,function(){
+                alert(this.innerHTML)
+            })
+        }
+    &lt;/script&gt;
+&lt;/html&gt;
+</code></pre><p>很简单，这样就实现了，实际上这里有坑，也待优化！<br>1.for循环，循环的是li，10个li就循环10次，绑定10次事件，100个就循环了100次，绑定100次事件！<br>2.如果li不是本来就在页面上的，是未来元素，是页面加载了，再通过js动态加载进来了，上面的写法是无效的，点击li是没有反应的！<br>所以就者需要用事件委托（即使不考虑上面的第二种情况，也是建议使用事件委托）！代码如下</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;ul id=&quot;ul-test&quot;&gt;
+            &lt;li&gt;0&lt;/li&gt;
+            &lt;li&gt;1&lt;/li&gt;
+            &lt;li&gt;2&lt;/li&gt;
+            &lt;li&gt;3&lt;/li&gt;
+            &lt;li&gt;4&lt;/li&gt;
+            &lt;li&gt;5&lt;/li&gt;
+            &lt;li&gt;6&lt;/li&gt;
+            &lt;li&gt;7&lt;/li&gt;
+            &lt;li&gt;8&lt;/li&gt;
+            &lt;li&gt;9&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/body&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var oUl=document.getElementById(&quot;ul-test&quot;);
+        oUl.addEventListener(&quot;click&quot;,function(ev){
+            var ev=ev||window.event;
+            var target=ev.target||ev.srcElement;
+            //如果点击的最底层是li元素
+            if(target.tagName.toLowerCase()===&#39;li&#39;){
+                alert(target.innerHTML)
+            }
+        })
+    &lt;/script&gt;
+&lt;/html&gt;
+
+</code></pre><p>这样写，即使是动态添加进来的li点击也有反应，还有一个就是ul只有一个，事件绑定在ul上，无论li多少个，都是添加一次事件！但是也是可能会有问题，如果li下面还有子元素，那么点击的时候，target可能不是li，而是鼠标点击那个位置的最底层元素！如下图，如果鼠标点击白色区域，那个target就是body元素,鼠标点击绿色区域target就是div元素，鼠标点击蓝色区域target就是ul，点击橙色就是li。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf444ed94451a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h2 id="5-使用对象作为函数参数"><a href="#5-使用对象作为函数参数" class="headerlink" title="5.使用对象作为函数参数"></a>5.使用对象作为函数参数</h2><p>大家试想下这样一个函数–函数接受几个参数，但是这几个参数都不是必填的，函数该怎么处理？是不是下面这样</p>
+<pre><code>function personInfo(name,phone,card){
+    ...
+}
+//以上函数，可以任意传参数。比如我想传card等于1472586326。这下是不是这样写
+personInfo(&#39;&#39;,&#39;&#39;,&#39;1472586326&#39;)
+</code></pre><p>有没有觉得上面写法奇怪，不太优雅？下面这里看着舒服一点！</p>
+<pre><code>function personInfo(opt){
+    ...
+}
+personInfo({card:&#39;1472586326&#39;})
+</code></pre><p>再想一下，如果一个函数，参数很多，怎么处理？</p>
+<pre><code>function test(arg1,arg2,arg3,arg4,arg5,arg6,arg7){
+    ...
+}
+</code></pre><p>密集恐惧症复发没有复发？下面这样看着会舒服一点！</p>
+<pre><code>function personInfo(opt){
+    ...
+}
+</code></pre><p>最后再想一下，如果需求改了，操作函数也要改！函数也要增加一个参数。</p>
+<pre><code>//原来函数
+function personInfo(name,phone,card){
+    ...
+}
+//修改后
+function personInfo(name,age,phone,card){
+    ...
+}
+</code></pre><p>这样就是参数修改一次，函数的参数就要修改一次！如果是用对象，就不会出现这样问题！</p>
+<pre><code>//修改前后都是这样，变得是函数的操作内容和调用时候的传参！
+function personInfo(opt){
+    ...
+}
+</code></pre><p>看了上面的几个栗子，总结来说，就是当函数的参数不固定的时候，参数多(三个或者三个以上)的时候，建议用一个对象记录参数，这样会比较方便，也为以后如果参数要改留了条后路！</p>
+<h2 id="6-使用push和apply合并数组"><a href="#6-使用push和apply合并数组" class="headerlink" title="6.使用push和apply合并数组"></a>6.使用push和apply合并数组</h2><p>合并数组这个已经是老生常谈的话题了，方法也是多种多样！</p>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h3><pre><code>var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];
+arr1=arr1.concat(arr2)
+console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre><p>concat会一个全新的数组，表示arr1和arr2两个数组的组合，并让arr1和arr2不变。简单吧？<br>但如果arr1和arr2的长度都很长，那就产生了一个很长很长的数组，内存又被占用了那么多。但是数组长度没限制！</p>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><pre><code>var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];
+for(var i=0,len=arr2.length;i&lt;len;i++){
+    arr1.push(arr2[i])
+}
+console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre><p>这里是往arr1循环添加arr2的元素，但是有一个情况，arr1的长度远小于arr2的长度，是不是循环arr1性能更好，循环次数更少。处理这个很简单，但是万一不知道arr1和arr2到底哪个长度更少呢？而且，for循环不够优雅！（当然，这个可以用迭代方法来替代）</p>
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><pre><code>var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];
+arr1 = arr2.reduce( function(coll,item){
+     coll.push( item );
+     return coll;
+ }, arr1 );
+ console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</code></pre><p>逼格高了一点，而且用ES6的箭头函数还可以减少一些代码量，但它仍然需要一个函数，每个元素都需要调用一次。</p>
+<h3 id="push-apply"><a href="#push-apply" class="headerlink" title="push.apply"></a>push.apply</h3><pre><code>var arr1=[1,2,3,4,5],arr2=[6,7,8,9,10];
+arr1.push.apply(arr1,arr2);
+console.log(arr1)//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+</code></pre><p>逼格看着高，代码少，也不会产生新的数组，也不难理解，就是调用<code>arr1.push</code>这个函数实例的<code>apply</code>方法，同时把<code>arr2</code>当作参数传入，这样<code>arr1.push</code>这个方法就会遍历<code>arr2</code>数组的所有元素，达到合并的效果。相当于<code>arr1.push.apply(arr1,[6,7,8,9,10]);</code>，最后相当于<code>arr1.push(6,7,8,9,10)</code>。遗憾的就是，这个方法对数组长度有限制，网上说法是不同浏览器，不同的长度限制，一般不超过10万！</p>
+<p>之前是建议用push.apply，但是现在保留意见，就是大家觉得哪个方式用哪个方式！这个没有一定的对错！</p>
+<h2 id="7-toFixed保留整数"><a href="#7-toFixed保留整数" class="headerlink" title="7.toFixed保留整数"></a>7.toFixed保留整数</h2><p>在开发上，经常会遇到最多保留多少位小数或者类似的问题，针对这个，使用toFixed可以很简单的解决问题，但是如果数据是要和后台交互的，而且后台存储的数据一般是保存数字类型，而使用toFixed后生成的是一个字符串，这下，就需要把toFixed生成的是一个字符串转成数字类型，转发很多。今天我说一个最简单–+。代码如下</p>
+<pre><code>var a=123.36896335.toFixed(2)
+console.log(a)//&#39;123.37&#39;
+a=+a
+console.log(a)//123.37
+</code></pre><p>PS：a=a|0和~~a也可以实现，但是生成的是一个整数，如下</p>
+<pre><code>var a=123.36896335.toFixed(2)
+console.log(a)//&#39;123.37&#39;
+a=a|0  
+console.log(a)//123 
+//---------------------------------分割线
+var a=123.36896335.toFixed(2)
+console.log(a)//&#39;123.37&#39;
+a=~~a  
+console.log(a)//123        
+
+</code></pre><h2 id="8-其它类型数据转布尔数据"><a href="#8-其它类型数据转布尔数据" class="headerlink" title="8.其它类型数据转布尔数据"></a>8.其它类型数据转布尔数据</h2><p>下面的转换，大家一看就明白了，不多说。</p>
+<pre><code>console.log(!!&#39;123&#39;)
+//true
+!!12
+//true
+!!-1
+//true
+!![]
+//true
+!!&#39;&#39;
+//false
+!!null
+//false
+</code></pre><h2 id="9-缓存变量"><a href="#9-缓存变量" class="headerlink" title="9.缓存变量"></a>9.缓存变量</h2><h3 id="for循环缓存length"><a href="#for循环缓存length" class="headerlink" title="for循环缓存length"></a>for循环缓存length</h3><pre><code>var arr=[1,2,3,4,5,6]
+for(var i=0,i&lt;arr.length;i++){
+    ...
+}
+//------------------------分割线
+var arr=[1,2,3,4,5,6]
+for(var i=0,len=arr.length;i&lt;len;i++){
+    ...
+}
+</code></pre><p>第一段就是每一次循环的时候，都要查询一次arr.length。第二段代码就是缓存了arr.length，每次对比len就好，理论上是第二段代码的写法比较好，性能比较高！但是随着浏览器的发展，这个细节的性能上的影响貌似远远小于预期，现在还是建议缓存！我写了下面的测试用例(谷歌浏览器测试)！</p>
+<pre><code>var arr100=[], arr10000=[];
+for(var i=0;i&lt;100;i++){
+    arr100.push(i)
+}
+for(var i=0;i&lt;10000;i++){
+    arr10000.push(i)
+}
+//缓存情况
+function testCache(arr){
+    console.time();
+    for(var i=0,len=arr.length;i&lt;len;i++){
+
+    }
+    console.timeEnd()
+}
+//不缓存情况
+function testNoCache(arr){
+    console.time();
+    for(var i=0,len=arr.length;i&lt;len;i++){
+
+    }
+    console.timeEnd()
+}
+testCache(arr100)//default: 0.007ms
+testCache(arr10000)//default: 0.035ms
+testNoCache(arr100)//default: 0.012ms
+testNoCache(arr10000)//default: 0.109ms
+//这只是一个最简单的数组，如果遍历的是一个nodeList（元素列表），效果可能会更明显。
+
+</code></pre><h3 id="元素事件"><a href="#元素事件" class="headerlink" title="元素事件"></a>元素事件</h3><p>这里我用jquery来讲解，比较容易理解，原生js也是这个道理！如下代码</p>
+<pre><code>$(&#39;.div1&#39;).click(function(){
+   ...
+})
+//--------------------------分割线   
+var $div1=$(&#39;.div1&#39;);
+$div1.click(function(){
+   ...
+})
+</code></pre><p>上面的代码，改变的也是缓存了$(‘.div1’)，但是这里就建议是第二种写法了，因为第一种点击一次就要查询一次.div1，Dom的操作还是能减少就减少！</p>
+<h2 id="10-使用innerHTML添加元素"><a href="#10-使用innerHTML添加元素" class="headerlink" title="10.使用innerHTML添加元素"></a>10.使用innerHTML添加元素</h2><p>比如有一个需求，往<code>ul</code>里面添加10个<code>li</code>，两种方法，如下代码</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;ul id=&quot;ul-test&quot;&gt;
+
+        &lt;/ul&gt;
+    &lt;/body&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var oUl=document.getElementById(&quot;ul-test&quot;);
+        //createElement方式
+        console.time();
+        for(var i=0;i&lt;10;i++){
+            var oLi=document.createElement(&#39;li&#39;);
+            oLi.innerHTML=i;
+            oUl.appendChild(oLi);
+        }
+        console.timeEnd();
+        //innerHTML方式
+        console.time();
+        var _html=&#39;&#39;;
+        for(var i=0;i&lt;10;i++){
+            _html+=&#39;&lt;li&gt;&#39;+i+&#39;&lt;/li&gt;&#39;
+        }
+        oUl.innerHTML=_html;
+        console.timeEnd();
+    &lt;/script&gt;
+&lt;/html&gt;
+
+</code></pre><p>大家把代码用浏览器打开，发现基本是第二种方式更快，第8点也说了，DOM操作能少就少！第一种要操作10次DOM，第二种只需要操作1次DOM。还有一个就是，这个只是很简单的li,如果是下面的列表呢？用第一种方式，得createElement多少次，innerHTML多少次，appendChild多少次？代码多，各个节点的逻辑和嵌套关系也乱！用第二种方式就是一个拼接字符串的操作，比第一种方式好多了，如果用es6的模板字符串，就更简单了！</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf4453fd37b0a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"></p>
+<h2 id="11-将参数转成数组"><a href="#11-将参数转成数组" class="headerlink" title="11.将参数转成数组"></a>11.将参数转成数组</h2><p>函数里的arguments，虽然拥有length属性，但是arguments不是一个数组，是一个类数组，没有push,slice等方法。有些时候，需要把arguments转成数组，转的方法也不止一个，推荐的是是下面的写法！</p>
+<pre><code>var _arguments=Array.prototype.slice.apply(arguments)
+
+</code></pre><h2 id="12-函数节流"><a href="#12-函数节流" class="headerlink" title="12.函数节流"></a>12.函数节流</h2><p>这里拿一个栗子说，比如mousemove,onscroll,onresize这些事件触发的时候，可能已经触发了60次事件，这样很消耗性能，而且实际上，我们并不需要这么频繁的触发，只要大约100毫秒触发一次就好！那么这样就需要函数节流了！</p>
+<p>普通写法</p>
+<pre><code>var count = 0;
+function beginCount() {
+    count++;
+    console.log(count);
+}
+document.onmousemove = function () {
+   beginCount();
+};
+</code></pre><p>效果</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf4453fbde66a?imageslim" alt="img"></p>
+<p>节流写法</p>
+<pre><code>var count = 0;
+function beginCount() {
+    count++;
+    console.log(count);
+}
+function delayFn(method, thisArg) {
+    clearTimeout(method.props);
+    method.props = setTimeout(function () {
+        method.call(thisArg)
+    },100)
+}
+document.onmousemove = function () {
+    delayFn(beginCount)
+};
+
+</code></pre><p>效果</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf445673b76fc?imageslim" alt="img"></p>
+<p>这种方式，其实是有问题的，在不断触发停下来等待100ms才开始执行，中间操作得太快直接无视。于是在网上找到下面这种方案！</p>
+<p>第二种节流写法</p>
+<pre><code>function delayFn2 (fn, delay, mustDelay){
+     var timer = null;
+     var t_start;
+     return function(){
+         var context = this, args = arguments, t_cur = +new Date();
+         //先清理上一次的调用触发（上一次调用触发事件不执行）
+         clearTimeout(timer);
+         //如果不存触发时间，那么当前的时间就是触发时间
+         if(!t_start){
+             t_start = t_cur;
+         }
+         //如果当前时间-触发时间大于最大的间隔时间（mustDelay），触发一次函数运行函数
+         if(t_cur - t_start &gt;= mustDelay){
+             fn.apply(context, args);
+             t_start = t_cur;
+         }
+         //否则延迟执行
+         else {
+             timer = setTimeout(function(){
+                 fn.apply(context, args);
+             }, delay);
+         }
+     };
+}
+var count=0;
+function fn1(){
+    count++;
+    console.log(count)
+} 
+//100ms内连续触发的调用，后一个调用会把前一个调用的等待处理掉，但每隔200ms至少执行一次
+document.onmousemove=delayFn2(fn1,100,200)
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2017/11/15/15fbf44576a04947?imageslim" alt="img"></p>
+<blockquote>
+<p>我现在函数节流用得很少，这两个写法是比较基础的，希望大家能共享下自己的比较好的方法！</p>
+</blockquote>
+<h2 id="13-其他写作建议"><a href="#13-其他写作建议" class="headerlink" title="13.其他写作建议"></a>13.其他写作建议</h2><p>关于其它的一些写法技巧和建议，都是比较老生常谈的，比如命名规范，函数单一性原则等。这一部分内容我自己总结和别人写的基本一致！我就不展开说了（感觉展开说也基本是复制粘贴别人的文章，这事我不干），所以我推荐大家去看这篇文章（<a href="https://link.juejin.im/?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F28910636" target="_blank" rel="noopener">如何优雅的编写 JavaScript 代码</a>）。有些知识我也是从这里获得的！</p>
+<h2 id="14-小结"><a href="#14-小结" class="headerlink" title="14.小结"></a>14.小结</h2><p>好了，关于我自己总结的一些实用技巧和建议，就到这里了！关于javascript的技巧和建议，这点大家还是要多看网上的资源，也要自己多总结，毕竟我自己总结的只是我自己发现的，只是冰山一角。但还是希望这篇文章能帮到大家，让大家学习到知识。当然，更希望的是能起到一个交流意见的作用。如果大家有什么建议，技巧。也欢迎分享。觉得我哪里写错了，写得不够好，也欢迎指出！让大家一起互相帮助，互相学习！</p>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://joshgad.github.io" class="b-link-green">七月飞雪</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/20170514/javascript-practical-tips-and-writing-suggestions.html" class="b-link-green">JavaScript 实用技巧和写法建议</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/20170518/analysis-of-the-difference-between-json-and-jsonp.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="json与jsonp区别浅析">
+                        
+                        <span class="card-title">json与jsonp区别浅析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">前端标签： 干货
+json与jsonp区别浅析（json才是目的，jsonp只是手段）一言以蔽之，json返回的是一串数据；而jsonp返回的是脚本代码（包含一个函数调用）；
+JSON其实就是JavaScript中的一个对象，跟var ob</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2017-05-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/编程/" class="post-category" target="_blank">
+                                    编程
+                                </a>
+                            
+                            <a href="/categories/编程/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/前端/" target="_blank">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/20170508/idea-settings.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="IDEA设置">
+                        
+                        <span class="card-title">IDEA设置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">idea标签： 设置
+
+先来看一些idea文件目录
+
+
+IntelliJ IDEA 的安装目录并不复杂，上图为最常改动的 bin 目录，经常会改动的文件或是必须介绍就是如图红色框中的几个。
+idea.exe 文件是 IntelliJ IDE</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2017-05-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Configuration/" class="post-category" target="_blank">
+                                    Configuration
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Windows/" target="_blank">
+                        <span class="chip bg-color">Windows</span>
+                    </a>
+                    
+                    <a href="/tags/Config/" target="_blank">
+                        <span class="chip bg-color">Config</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/live2d-widget","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
